@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一场关于世界杯的简短笔记 · 指南与提醒</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'Helvetica Neue', sans-serif;
+            background-color: #f7f7f7;
+            color: #2a2a2a;
+            line-height: 1.7;
+        }
+
+        /* 深色头图 —— 简洁克制，不做重纹理 */
+        .hero {
+            background: linear-gradient(145deg, #0b1a2e 0%, #1d2f44 100%);
+            min-height: 46vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 4rem 1.5rem 3rem;
+            color: #eaeef3;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: #c49b5c;
+            opacity: 0.3;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            margin-bottom: 0.8rem;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            font-weight: 600;
+            color: #dbb677;
+        }
+
+        .hero p.lead {
+            max-width: 560px;
+            font-size: 1.1rem;
+            color: #bccad8;
+            font-weight: 300;
+            margin-top: 0.3rem;
+            line-height: 1.6;
+        }
+
+        /* 正文区域 浅色卡片感 */
+        .content-wrapper {
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 3rem 1.8rem 4rem;
+        }
+
+        .article-block {
+            background: #ffffff;
+            border-radius: 28px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.03);
+            padding: 2.5rem 2.5rem 3rem;
+            margin-top: -1.8rem;
+            position: relative;
+        }
+
+        .article-block h2 {
+            font-size: 1.7rem;
+            font-weight: 450;
+            margin: 2.2rem 0 0.6rem;
+            color: #1b2b3f;
+            border-left: 4px solid #c49b5c;
+            padding-left: 1rem;
+        }
+
+        .article-block h2:first-of-type {
+            margin-top: 0.2rem;
+        }
+
+        .article-block p {
+            margin: 1.2rem 0;
+            font-size: 1rem;
+        }
+
+        .article-block a {
+            color: #9f7a44;
+            text-decoration: none;
+            border-bottom: 1.5px dotted #d1b586;
+            transition: border 0.2s, color 0.2s;
+            font-weight: 500;
+        }
+
+        .article-block a:hover {
+            color: #5e3f1f;
+            border-bottom: 1.5px solid #5e3f1f;
+        }
+
+        /* 引用卡片（引用提示） */
+        .quote-card {
+            background: #f0f3f8;
+            border-left: 6px solid #c49b5c;
+            padding: 1.2rem 1.8rem;
+            margin: 2.2rem 0;
+            border-radius: 14px 6px 6px 14px;
+            font-style: normal;
+        }
+
+        .quote-card p {
+            margin: 0.3rem 0;
+            color: #2f4055;
+        }
+
+        .quote-card .source {
+            font-size: 0.9rem;
+            color: #6b7b8d;
+            margin-top: 0.6rem;
+        }
+
+        /* 场景短句 —— 用轻量列表 */
+        .scene-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin: 1.8rem 0 1.2rem;
+        }
+
+        .scene-item {
+            flex: 1 1 160px;
+            background: #f5f7fb;
+            padding: 1.2rem 1rem;
+            border-radius: 20px;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #1b2b3f;
+            border: 1px solid #e3e8f0;
+        }
+
+        .scene-item strong {
+            display: block;
+            font-weight: 500;
+            color: #0b1a2e;
+            margin-bottom: 0.3rem;
+        }
+
+        /* faq 摘要 — 极简条目 */
+        .faq-mini {
+            margin: 2rem 0 1.2rem;
+        }
+
+        .faq-mini details {
+            margin: 0.7rem 0;
+            border-bottom: 1px solid #e7ecf3;
+            padding: 0.6rem 0;
+        }
+
+        .faq-mini summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #1b2b3f;
+            padding: 0.2rem 0;
+            font-size: 1rem;
+        }
+
+        .faq-mini details p {
+            margin: 0.7rem 0 0.4rem 0;
+            padding-left: 0.5rem;
+            color: #3e4f64;
+        }
+
+        .visit-line {
+            margin-top: 2.5rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2e7ef;
+            font-size: 1.05rem;
+            color: #1b2b3f;
+        }
+
+        .footer-note {
+            margin-top: 2rem;
+            text-align: center;
+            font-size: 0.85rem;
+            color: #7b8a9c;
+            border-top: 1px solid #e6eaf2;
+            padding-top: 2rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .article-block {
+                padding: 1.8rem 1.2rem 2.2rem;
+            }
+
+            .article-block h2 {
+                font-size: 1.4rem;
+            }
+
+            .scene-flex {
+                flex-direction: column;
+            }
+
+            .scene-item {
+                flex: 1 1 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 —— 标题 + 导语 -->
+    <header class="hero">
+        <h1>一份关于<span>世界杯</span>的简短笔记</h1>
+        <p class="lead">纯粹观赛指南 · 常见提醒 · 以及如何找到可靠的信息源</p>
+    </header>
+
+    <!-- 正文区：浅色卡片感 -->
+    <div class="content-wrapper">
+        <div class="article-block">
+
+            <!-- 切入：从简明指南和访问提醒展开 -->
+            <h2>不止是比赛，也是一次信息筛选</h2>
+            <p>每届大赛临近，关于赛程、转播、分组、票务的消息总会铺天盖地。对我而言，真正重要的并不是最快的新闻，而是如何从混杂的渠道里找到那些准确、持续的内容。关于 <a href="https://site-wc26.com">世界杯</a> 的讨论每年都在升温，但一份冷静的指南往往比碎片信息更有价值。</p>
+
+            <p>这一篇不打算罗列所有球队数据，也不做预测。我更想聊聊：当你需要查阅完整赛历、确认比赛时间、或者了解主办城市的基本信息时，应该记住哪些简单的原则。</p>
+
+            <!-- 引用提示 -->
+            <div class="quote-card">
+                <p>「很多混乱的起因，往往不是缺少信息，而是信息之间互相矛盾。这时候，一个稳定的参考源比一百条快讯更可靠。」</p>
+                <div class="source">—— 某次赛前笔记里的自省</div>
+            </div>
+
+            <h2>看球之前的三个简单准备</h2>
+            <p>第一，确定你的时区。世界杯的举办地往往和国内有数小时时差，提前把比赛时间换算成当地时间，能省去半夜迷糊中翻找的麻烦。第二，选择一个你信任的信息入口——无论是官方渠道还是长期关注的媒体，尽量不要在赛前十分钟才开始搜索。第三，小心那些带有诱导分享性质的链接，尤其是所谓「高清独家」或「内部票务」。关于完整赛历和官方公告，你可以先在 <a href="https://site-wc26.com">世界杯</a> 页面里核对基础信息，再决定接下来关注哪些细节。</p>
+
+            <!-- 场景短句：用轻量卡片表达使用场景 -->
+            <div class="scene-flex">
+                <div class="scene-item">
+                    <strong>赛程确认</strong>
+                    小组赛、淘汰赛阶段一目了然
+                </div>
+                <div class="scene-item">
+                    <strong>时间转换</strong>
+                    比赛时间快速换算
+                </div>
+                <div class="scene-item">
+                    <strong>中立资讯</strong>
+                    避免被单一观点带偏
+                </div>
+            </div>
+
+            <h2>提醒：信息节奏与判断</h2>
+            <p>很多朋友会在赛前一周才集中看资料，这完全正常。但大赛期间谣言和旧闻重发的频率会明显提高。我个人的习惯是：任何关于赛程变更、球员伤停或票务补售的消息，如果只有一个来源，先放一放。至少等两个互不关联的信源交叉验证。关于 <a href="https://site-wc26.com">世界杯</a> 的讨论社区里，有时会出现带有倾向性的解读，稍加比对就能发现矛盾。</p>
+
+            <p>另外，如果你需要和朋友们共享一份赛事时间表，或者想在手机上快速查阅某一场比赛的日期，直接保存官方页面比收藏第三方截图更可靠。截图无法更新，但网页可以。</p>
+
+            <!-- FAQ 摘要 — 极简条目 -->
+            <div class="faq-mini">
+                <details>
+                    <summary>在哪里可以找到最新赛程？</summary>
+                    <p>建议优先查看大型体育媒体或赛会关联页面。您可以直接参考 <a href="https://site-wc26.com">世界杯</a> 提供的赛历概览，通常最基础的信息（比赛日、场地）是比较稳定的。</p>
+                </details>
+                <details>
+                    <summary>如何分辨信息是否过时？</summary>
+                    <p>注意页面上的时间戳或版本标记。如果一篇文章没有显示更新日期，且内容与主流新闻相差超过两天，最好再核对一次。另外，社交媒体上的短消息适合提醒，但不适合作为唯一依据。</p>
+                </details>
+                <details>
+                    <summary>是否需要为观赛做额外准备？</summary>
+                    <p>如果打算熬夜看球，提前调整作息、准备一些不含酒精的饮料会更舒适。如果是和朋友一起看，提前确认转播平台是否清晰，以及是否支持投屏或回放。</p>
+                </details>
+            </div>
+
+            <!-- 访问句 —— 自然融入，不做点击诱导 -->
+            <div class="visit-line">
+                如果你还没有一个固定的信息起点，不妨从 <a href="https://site-wc26.com">世界杯</a> 这个页面开始，至少那里的赛程和分组是清晰的。我每次赛前都会去扫一眼，确保自己没记错开赛时间。
+            </div>
+
+            <!-- 温和收尾 -->
+            <div class="footer-note">
+                — 记于大赛前夕 · 希望这份笔记能让你少翻几次无关页面
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
